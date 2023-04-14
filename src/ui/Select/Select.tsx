@@ -7,11 +7,6 @@ import { SelectProps } from "./Select.types";
 const Select: FC<SelectProps> = ({ variant, val, options, onChange }) => {
   const [active, setActive] = useState(false);
   const [selected, setSelected] = useState(val);
-  console.log(selected, "selecteeeeed");
-
-  // useEffect(() => {
-  //   onChange(selected);
-  // }, [selected]);
 
   return (
     <div
@@ -44,7 +39,6 @@ const Select: FC<SelectProps> = ({ variant, val, options, onChange }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelected(item);
-                  console.log("select");
                   setActive(false);
                   onChange(item);
                 }}

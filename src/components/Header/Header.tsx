@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import button from "../../../public/Button.svg";
+import { IHeader } from "./Header.types";
 
-const Header: FC<{ pageName: string }> = ({ pageName }) => {
+const Header: FC<IHeader> = ({ pageName }) => {
   return (
     <div className="flex items-center bg-white h-12">
       <Image

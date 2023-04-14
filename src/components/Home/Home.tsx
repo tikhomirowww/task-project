@@ -11,18 +11,13 @@ import Image from "next/image";
 import Button from "@/ui/Button/Button";
 import StatusBtn from "@/ui/StatusBtn/StatusBtn";
 import Table from "../Table/Table";
-import Limit from "../Limit/Limit";
 import Pagination from "../Pagination/Pagination";
 import Link from "next/link";
+import { IPost } from "@/redux/posts/posts.types";
 
 const Home = () => {
   const [limit, setLimit] = useState(5);
   const [curr, setCurr] = useState(1);
-  console.log(limit, "limit");
-
-  const getPage = (val: any) => {
-    setCurr(val);
-  };
 
   const [status, setStatus] = useState<"All statuses" | "Draft" | "Published">(
     "All statuses"
@@ -35,23 +30,20 @@ const Home = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getPostsList());
-    dispatch(fetchByStatus(status, limit, 1));
+    dispatch(fetchByStatus(status));
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchByStatus(status, limit, 1));
+    dispatch(fetchByStatus(status));
   }, [status]);
 
-  const posts = useAppSelector((state) => state.posts.posts);
+  const posts: IPost[] = useAppSelector((state) => state.posts.posts);
   let filtered = useAppSelector((state) => state.posts.filteredPosts);
-  // filtered = filtered.slice(0, 5);
   const quantity = posts.length;
 
-  let published = posts.filter(
-    (item: any) => item.status === "Published"
-  ).length;
+  let published = posts.filter((item) => item.status === "Published").length;
 
-  let drafts = posts.filter((item: any) => item.status === "Draft").length;
+  let drafts = posts.filter((item) => item.status === "Draft").length;
 
   const [search, setSearch] = useState("");
 
@@ -101,7 +93,6 @@ const Home = () => {
       {/* <div className="container w-[97%] mt-8 mx-auto flex justify-between"> */}
       {/* <Limit quantity={quantity} limit={limit} getVal={getLimit} /> */}
       <Pagination
-        getPage={getPage}
         getLimit={getLimit}
         quantity={quantity}
         posts={posts}

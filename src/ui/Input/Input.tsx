@@ -16,10 +16,6 @@ const Input: FC<InputProps> = ({
   value,
   onChange,
 }) => {
-  const [title, setTitle] = useState(true);
-
-  // console.log(value);
-
   return (
     <div className="relative">
       <input

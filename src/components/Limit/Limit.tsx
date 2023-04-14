@@ -1,11 +1,8 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Select from "../../ui/Select/Select";
+import { ILimit } from "./Limit.types";
 
-const Limit: FC<{
-  getVal: (val: number | string) => void;
-  limit: number;
-  quantity: number;
-}> = ({ getVal, limit, quantity }) => {
+const Limit: FC<ILimit> = ({ getVal, limit, quantity }) => {
   return (
     <div className="flex items-center justify-between w-48 text-[13px] text-grayTitle">
       <div className="w-16">

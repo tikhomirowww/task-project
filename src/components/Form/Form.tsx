@@ -11,7 +11,6 @@ const Form: FC = () => {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");
   const [time, setTime] = useState("");
-  //   console.log(status, "status");
 
   const getValue = (str: string) => {
     setStatus(str);

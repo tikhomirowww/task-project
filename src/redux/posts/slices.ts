@@ -1,18 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-
-interface IPost {
-  id: number;
-  title: string;
-  status: string;
-  time: string;
-}
-
-interface PostsState {
-  posts: IPost[];
-  filteredPosts: IPost[];
-  currentPage: number;
-}
+import { IPost, PostsState } from "./posts.types";
 
 const initialState: PostsState = {
   posts: [],
@@ -33,7 +21,6 @@ export const postsSlice = createSlice({
     },
     getPostByCategory: (state, { payload }) => {
       state.filteredPosts = payload;
-      console.log(state.filteredPosts, "filter state");
     },
     getCurrent: (state, { payload }) => {
       state.currentPage = payload;

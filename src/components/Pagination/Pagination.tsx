@@ -5,26 +5,12 @@ import Image from "next/image";
 import { getCurrent } from "@/redux/posts/slices";
 import { useAppDispatch } from "@/redux/store";
 import { useAppSelector } from "@/redux/store";
+import { IProps } from "./pagination.types";
 
-interface Props {
-  limit: number;
-  posts: any;
-  getLimit: (val: number | string) => void;
-  quantity: number;
-  getPage: (val: number | string) => void;
-}
-
-const Pagination: React.FC<Props> = ({
-  limit,
-  posts,
-  getLimit,
-  quantity,
-  getPage,
-}) => {
+const Pagination: React.FC<IProps> = ({ limit, posts, getLimit, quantity }) => {
   const dispatch = useAppDispatch();
 
   const [activeIndex, setActiveIndex] = useState(1);
-  console.log(activeIndex, "active");
 
   const pages = Math.ceil(posts.length / limit);
 

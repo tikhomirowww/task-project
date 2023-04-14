@@ -1,6 +1,6 @@
 export interface SelectProps {
   variant: "status" | "limit";
-  val: any;
+  val: number;
   options: string[] | number[];
   onChange: (str: any) => void;
 }
