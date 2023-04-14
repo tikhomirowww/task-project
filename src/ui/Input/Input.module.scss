@@ -1,0 +1,32 @@
+.input::-webkit-calendar-picker-indicator {
+  @apply absolute right-3 z-10 opacity-0;
+}
+
+.input::placeholder {
+  @apply text-grayTitle;
+}
+
+.input[type="datetime-local"]:in-range::-webkit-datetime-edit-year-field,
+.input[type="datetime-local"]:in-range::-webkit-datetime-edit-month-field,
+.input[type="datetime-local"]:in-range::-webkit-datetime-edit-fields-wrapper,
+.input[type="datetime-local"]:in-range::-webkit-datetime-edit-day-field,
+.input[type="datetime-local"]:in-range::-webkit-datetime-edit-text {
+  color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input[type="datetime-local"]::selection {
+  display: none;
+  background-color: transparent;
+}
+
+.iconContainer {
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 12px;
+  }
+}

@@ -1,0 +1,18 @@
+.th {
+  &:first-child {
+    @apply w-[5.75rem] pl-6;
+  }
+
+  &:nth-child(2) {
+    @apply w-[20.875rem];
+  }
+
+  &:nth-child(3) {
+    @apply w-[21.25rem];
+  }
+}
+
+.values td {
+  height: 80px !important;
+  @apply h-20 border-b-2 border-grayLayout text-sm font-arial;
+}
