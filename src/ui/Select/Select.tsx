@@ -24,7 +24,7 @@ const Select: FC<SelectProps> = ({ variant, val, options, onChange }) => {
       >
         {selected}
         <Image
-          className={`${variant == "status" ? "ml-2" : ""}`}
+          className={`border-white ${variant == "status" ? "ml-2" : ""}`}
           src={svg}
           width={16}
           height={16}
